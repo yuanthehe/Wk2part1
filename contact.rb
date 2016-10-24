@@ -62,8 +62,25 @@ class Contact
   # by specifying both the name of the attribute and the value
   # eg. searching for 'first_name', 'Betty' should return the first contact named Betty
   def self.find_by(attribute, search_term)
-    
+     @@contacts.each { |contact|
 
+       if attribute == "first_name" && search_term == contact.first_name
+         return contact
+       end
+
+       if attribute == "last_name" && search_term == contact.last_name
+         return contact
+       end
+
+       if attribute == "email" && search_term == contact.email
+         return contact
+       end
+
+       if attribute == "note" && search_term == contact.note
+         return contact
+       end
+      }
+      return "Contact could not be found!"
   end
 
   # This method should delete all of the contacts
