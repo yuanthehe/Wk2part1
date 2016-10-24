@@ -31,7 +31,13 @@ class Contact
   # This method should accept an id as an argument
   # and return the contact who has that id
   def self.find(id)
-    @@contacts[id - 1]
+    @@contacts.each { |contact|
+      if
+        contact.id == id
+      else
+        return "Wrong ID"
+      end
+    }
   end
 
   # This method should allow you to specify
@@ -85,16 +91,18 @@ class Contact
 
   # This method should delete all of the contacts
   def self.delete_all
+    @@contacts = []
 
   end
 
   def full_name
-
+    "#{first_name} #{last_name}"
   end
 
   # This method should delete the contact
   # HINT: Check the Array class docs for built-in methods that might be useful here
   def delete
+    @@contacts.delete(self)
 
   end
 
