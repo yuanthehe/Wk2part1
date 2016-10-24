@@ -25,20 +25,35 @@ class Contact
 
   # This method should return all of the existing contacts
   def self.all
-
+    @@contacts
   end
 
   # This method should accept an id as an argument
   # and return the contact who has that id
-  def self.find
-
+  def self.find(id)
+    @@contacts[id - 1]
   end
 
   # This method should allow you to specify
   # 1. which of the contact's attributes you want to update
   # 2. the new value for that attribute
   # and then make the appropriate change to the contact
-  def update
+  def update(attribute, new_value)
+    if attribute == "first_name"
+      @first_name = new_value
+    end
+
+    if attribute == "last_name"
+      @last_name = new_value
+    end
+
+    if attribute == "email"
+      @email = new_value
+    end
+
+    if attribute == "note"
+      @note = new_value
+    end
 
   end
 
@@ -46,7 +61,8 @@ class Contact
   # but it should allow you to search for a contact using attributes other than id
   # by specifying both the name of the attribute and the value
   # eg. searching for 'first_name', 'Betty' should return the first contact named Betty
-  def self.find_by
+  def self.find_by(attribute, search_term)
+    
 
   end
 
