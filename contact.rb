@@ -34,6 +34,7 @@ class Contact
     @@contacts.each { |contact|
       if
         contact.id == id
+        return contact
       else
         return "Wrong ID"
       end
